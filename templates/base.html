@@ -1,23 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang=en>
 
 <head>
-	<title>This is the title</title>
-	<div style="border: 2px solid #000;">
-		<h1>This is the header</h1>
-	</div>
+	{% if request.user.is_authenticated %}
+	<p>Hello, {{request.user.username}} | <a href="{% url 'logout' %}">Logout</a></p>
+	{% else %}
+	<p><a href="{% url 'register' %}">Register</a> | <a href="#">Login</a></p>
+	{% endif %}
+	<hr>
 	
 </head>
 
 <body>
+
 {% block content %}
 
 {% endblock content %}
+
 </body>
 
 <footer>
-	<div style="border: 2px solid #000;">
-		<h3>This is the footer</h3>
-	</div>
+	<hr>
+	<p>Abhishek Kumar Blog | 2020</p>
 </footer>
+
 </html>
