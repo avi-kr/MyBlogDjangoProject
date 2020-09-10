@@ -35,6 +35,7 @@ INSTALLED_APPS = [
 
     # My Apps 
     'personal',
+    'account',
 
     # Django apps
     'django.contrib.admin',
@@ -44,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+AUTH_USER_MODEL = 'account.Account'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
