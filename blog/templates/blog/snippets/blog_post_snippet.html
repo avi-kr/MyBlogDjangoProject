@@ -2,9 +2,15 @@
 	.card{
 		max-width: 700px;
 		width: 100%;
+		border-radius: 12px 12px 12px 12px;
+	}
+	.card-img-top {
+  		height: 100%;
+  		border-radius: 12px 12px 0 0;
 	}
 	.card-body{
 		padding: 20px;
+		border-radius: 12px 12px 12px 12px;
 	}
 </style>
 
@@ -13,12 +19,12 @@
 	<div class="row">
 
 		<!-- Blog Post -->
-		<div class="card m-auto">
+		<div class="card m-auto shadow bg-white">
 			<a href="{% url 'blog:detail' post.slug %}">
 				<img class="card-img-top" src="{{blog_post.image.url}}">
 			</a>
 			
-			<div class="card-body mt-2 mb-2">
+			<div class="card-body">
 				<a href="{% url 'blog:detail' post.slug %}">
 					<h2 class="card-title">{{blog_post.title}}</h2>
 				</a>
@@ -38,7 +44,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="card m-auto">
+		<div class="card m-auto shadow bg-white">
 			<div class="card-body mt-2 mb-2">
 				<h2 class="card-title">No results</h2>
 				<p class="card-text">There were no results matching the search: "{{query}}"</p>
