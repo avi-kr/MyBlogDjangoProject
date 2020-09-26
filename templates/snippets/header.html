@@ -32,7 +32,7 @@
   	{% endif %}
   </div>
   <div class="search-bar navbar-brand mt-sm-2 mr-16">
-  	<form method="get">
+  <form onsubmit="return executeQuery();">
   		<input class="form-control"  type="text" name="q" id="id_q" placeholder="Search...">
   	</form>
   </div>
@@ -56,4 +56,13 @@
 
 <script type="text/javascript">
 	document.getElementById("id_q").value = "{{query}}"
+</script>
+<script>
+function executeQuery() {
+    var query = document.getElementById('id_q').value;
+    window.location.replace("http://127.0.0.1:8000/?q=" + query)
+    // "https://abhiseka.xyz/?q=" + query;
+    return false
+}
+
 </script>
