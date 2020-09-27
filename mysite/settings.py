@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'personal',
     'account',
     'blog',
+    'note',
 
     # Django apps
     'django.contrib.admin',
