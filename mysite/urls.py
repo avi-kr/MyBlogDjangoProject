@@ -23,6 +23,10 @@ from personal.views import (
     home_screen_view,
 )
 
+from note.views import (
+    get_note_view,
+)
+
 from account.views import (
     registration_view,
     logout_view,
@@ -34,6 +38,7 @@ from account.views import (
 urlpatterns = [
     path('', home_screen_view, name="home"),
     path('account/', account_view, name="account"),
+    path('note/', get_note_view, name="note"),
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls', 'blog')),
     path('note/', include('note.urls', 'note')),

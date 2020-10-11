@@ -20,10 +20,6 @@
 
 		<!-- Note Post -->
 		<div class="card m-auto shadow bg-white">
-			<a href="{% url 'note:detail' post.slug %}">
-				<img class="card-img-top" src="{{note_post.image.url}}">
-			</a>
-			
 			<div class="card-body">
 				<a href="{% url 'note:detail' post.slug %}">
 					<h2 class="card-title">{{note_post.title}}</h2>

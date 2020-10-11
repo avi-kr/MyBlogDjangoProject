@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style type="text/css">
+
+	@media (max-width: 768px) { 
+		.right-column{
+			margin-left: 0px;
+		}
+	}
+
+	@media (min-width: 768px) { 
+		.right-column{
+			margin-left: 20px;
+		}
+	}
+
+	.note-header-logo {
+  		font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  		font-size: 2.25rem;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+  		font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+	}
+
+	.display-4 {
+  		font-size: 2.5rem;
+	}
+
+	.note-post-container{
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.create-post-bar{
+		background-color: #fff;
+		margin-bottom:20px;
+	}
+
+	.left-column{
+		padding:0px;
+	}
+
+	.right-column{
+		padding:0px;
+	}
+	.lead{
+		font-size: 17px;
+	}
+</style>
+
+
+<!-- main content -->
+<div class="container">
+	<div class="row">
+
+		<!-- note feed -->
+		<div class="left-column col-lg-7 offset-lg-1">
+
+			<!-- Top 'create note post' bar -->
+			<div class="d-lg-none mb-3">
+				<div class="card m-auto shadow d-flex flex-column p-3 bg-white">
+					<img class="img-fluid d-block m-auto pb-2" src="{% static 'logo.png' %}" width="72" height="72">
+					<p class="lead">Simple note powered by Django framework.</p>
+					<p class="m-auto"><a class="btn btn-primary" href="{% url 'note:create' %}">Create note</a></p>
+				</div>
+			</div>
+			<!-- end Top 'create note post' bar -->
+
+			<!-- Note posts-->
+			{% if note_posts %}
+				{% for post in note_posts %}
+					<div class="note-post-container">
+						{% include 'note/snippets/note_post_snippet.html' with note_post=post %}
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="note-post-container">
+					{% include 'note/snippets/note_post_snippet.html' with query=query %}
+				</div>
+			{% endif %}
+			<!-- End Note posts-->
+
+		<!-- Pagination -->
+		{% include 'note/snippets/note_post_pagination.html' with note_posts=note_posts %}
+
+		</div>
+		<!-- end note feed -->
+
+
+		<!-- Right 'create note post' column  -->
+		<div class="right-column col-lg-3 d-lg-flex d-none flex-column">
+
+			<div class="card shadow bg-white create-post-bar d-flex flex-column p-3">
+				<img class="img-fluid d-block m-auto pb-2" src="{% static 'logo.png' %}" width="72" height="72">
+				<p class="lead">Simple note powered by Django framework.</p>
+				<p class="m-auto"><a class="btn btn-primary" href="{% url 'note:create' %}">Create note</a></p>
+			</div>
+		
+		</div>
+		<!-- end Right 'create note post' column  -->
+
+
+
+	</div>
+</div>
+
+{% endblock content %}
